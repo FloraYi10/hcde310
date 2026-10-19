@@ -14,3 +14,4 @@ artworks = [
     {"title": "Stacks of Wheat (End of Summer)", "artist": "Claude Monet", "year": 1890},
     {"title": "Untitled (vase)"},
 ]
+

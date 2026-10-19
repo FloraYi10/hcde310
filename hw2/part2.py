@@ -5,3 +5,5 @@
 
 from artworks import artworks
 
+for art in artworks:
+    print (art["title"],"-",art.get("artist","Unknown"),"(" + str(art.get("year","Unknown")) +")")
