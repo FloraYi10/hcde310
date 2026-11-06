@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results for "{{ query }}"</h1>
+
+    <!-- Show message if API failed or no results found -->
+    {% if message %}
+      <p style="color: orange;"><strong>{{ message }}</strong></p>
+    {% endif %}
+
+    <!-- If we have artworks, loop through them and display -->
+    {% if artworks %}
+      <ul>
+        {% for art in artworks %}
+          <li>
+              <strong>{{ art.title or "Untitled" }}</strong> 
+              by {{ art.artist_title or "Unknown Artist" }}
+              
+              <!-- Missing field check: handle missing images gracefully -->
+              {% if art.image_url %}
+                <br>
+                <img src="{{ art.image_url }}" alt="Artwork: {{ art.title }}" style="max-width: 200px; height: auto;">
+              {% else %}
+                <br>
+                <em>[No image available]</em>
+              {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <p><a href="/">Back to Search</a></p>
+</body>
+</html>

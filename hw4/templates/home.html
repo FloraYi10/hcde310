@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Art Institute Search</title>
+</head>
+<body>
+    <h1>Art Institute of Chicago Search</h1>
+    <p>Find artworks from the museum collection.</p>
+
+    <!-- Show error or empty-input message if there is one -->
+    {% if message %}
+      <p style="color: red;"><strong>{{ message }}</strong></p>
+    {% endif %}
+
+    <!-- Search form: uses GET method and sends input with name="q" -->
+    <form action="/results" method="get">
+        <div>
+            <label for="search-input">Search Art:</label>
+            <input type="text" id="search-input" name="q" placeholder="e.g., monet, cats">
+            <button type="submit">Search</button>
+        </div>
+    </form>
+</body>
+</html>
